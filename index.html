@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Priorizando o carregamento das fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Linkando as fontes e o CSS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Fotoblog</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="container">
+        <nav>
+          <img
+            src="./assets/logo-camera.svg"
+            alt="Imagem de uma câmera fotográfica representando a logomarca da empresa."
+          />
+
+          <ul>
+            <li>Home</li>
+            <li class="active">Galeria</li>
+          </ul>
+        </nav>
+
+        <form action="" method="GET">
+          <div class="input-wrapper">
+            <label for="searchbar">Pesquise por imagens e coleções</label>
+            <input
+              type="text"
+              id="searchbar"
+              placeholder="Pesquise por imagens e coleções"
+            />
+          </div>
+        </form>
+
+        <img class="avatar"
+          src="./assets/avatar.png"
+          alt="Avatar: imagem inserida pelo usuário como foto do perfil no aplicativo."
+        />
+      </header>
+      <main>
+        <!-- A classe container foi aplicada dentro do MAIN pois o MAIN possui outra cor de fundo (background).
+              E ao limitar a largura do container (para de "crescer" em 1120px) e alinha-lo ao centro,
+              fará com que, em telas maiores que 1120px, os limites do container sejam percebidos devido a diferença de cor.
+            Sendo assim, criar uma div para aplicar a classe container dentro da tag MAIN fará com que o conteúdo continue alinhado com os demais elementos na tela,
+            mas a cor de fundo (background) não se limitará a 1120px -->
+        <div class="container">main</div>
+      </main>
+      <footer class="container">
+        <p>© 2023 - Rocketseat Explorer</p>
+      </footer>
+    </div>
+  </body>
+</html>

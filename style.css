@@ -1,0 +1,120 @@
+:root {
+  font-size: 62.5%; /* 1rem = 10px */
+
+  --color-base-white: #ffffff;
+  --color-base-gray-100: #f5f5f5;
+  --color-base-gray-300: #8d8d99;
+  --color-base-gray-500: #3d3d3d;
+  --color-base-gray-800: #323238;
+  --color-base-gray-900: #202024;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  /*Melhorando a qualidade das fontes (textos) */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+input {
+  color: var(--color-base-gray-900);
+  font-family: "Mulish", sans-serif;
+  font-size: 1.6rem;
+
+  background: var(--color-base-white);
+}
+
+#app {
+  display: grid;
+  /* max-content fará com que a caixa se adapte ao conteúdo (header e footer), deixando o restante da visualização disponível para o main (1fr) */
+  grid-template-rows: max-content 1fr max-content;
+  height: 100vh;
+}
+
+.container {
+  width: min(112rem, 100%);
+
+  padding: 1.6rem 11.2rem;
+  margin: 0 auto;
+}
+
+header,
+nav,
+nav ul {
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7.6rem;
+}
+
+nav ul {
+  color: var(--color-base-gray-300);
+  font-size: 1.8rem;
+
+  list-style: none;
+}
+
+nav ul li.active {
+  color: var(--color-base-gray-900);
+}
+
+/* Flex 1 fará com que a searchbar ocupe todo espaço disponível na caixa */
+header form {
+  flex: 1;
+}
+
+/* Escondendo o label
+    Essa técnica é utilizada para esconder o label e manter a acessibilidade. 
+    Pois pessoas que utilizam leitores de tela não conseguem ler o que está escrito no placeholder.*/
+.input-wrapper label {
+  height: 1px;
+  width: 1px;
+
+  overflow: hidden;
+  position: absolute;
+}
+
+.input-wrapper input {  
+  font-weight: 600; 
+  
+  border: 0;
+  border-radius: 0.5rem;
+  
+  width: 100%;
+  padding: 1.2rem 1.6rem;  
+}
+
+.input-wrapper input::placeholder {
+  color: var(--color-base-gray-500);
+  opacity: 0.56;
+}
+
+.avatar {
+  height: 4.2rem;
+  width: 4.2rem;
+
+  border-radius: 50%;
+
+  /* Adequar imagens inseridas para a altura e largura determinada*/
+  object-fit: cover;
+}
+
+main {
+  background: var(--color-base-gray-100);
+
+  /* "Travar" o HEADER e o FOOTER e deixar apenas o conteúdo interno do MAIN com scroll (mouse)*/
+  overflow-y: scroll;
+}
+
+footer p {
+  color: var(--color-base-gray-800);
+  font-weight: 600;
+  text-align: center;
+}
