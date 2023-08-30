@@ -81,14 +81,14 @@ header form {
   position: absolute;
 }
 
-.input-wrapper input {  
-  font-weight: 600; 
-  
+.input-wrapper input {
+  font-weight: 600;
+
   border: 0;
   border-radius: 0.5rem;
-  
+
   width: 100%;
-  padding: 1.2rem 1.6rem;  
+  padding: 1.2rem 1.6rem;
 }
 
 .input-wrapper input::placeholder {
@@ -111,6 +111,61 @@ main {
 
   /* "Travar" o HEADER e o FOOTER e deixar apenas o conteúdo interno do MAIN com scroll (mouse)*/
   overflow-y: scroll;
+}
+
+main h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+
+  margin: 2rem 0 3.6rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem;
+}
+
+.card {
+  background: var(--color-base-white);
+
+  max-width: 39rem;
+
+  border: 0;
+  border-radius: 0.8rem;
+
+  /* Esconder o conteúdo que está saindo da caixa. Ex.: bordas superiores da imagem */
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+
+  /* Ajustando a proporção das imagens (aspect-ratio: width/height)
+    e object-fit: cover para a imagem se adequar a proporção desejada */
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.card-details {
+  padding: 2.2rem;
+}
+
+.card-details h2 {
+  font-size: 1.8rem;
+
+  margin-bottom: 1.2rem;
+}
+
+.card-details .tags span {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+
+  padding: 0.8rem;
+
+  background: var(--color-base-gray-100);
+
+  border-radius: 0.6rem;
 }
 
 footer p {
