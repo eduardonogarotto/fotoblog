@@ -136,6 +136,9 @@ main h1 {
 
   /* Esconder o conteúdo que está saindo da caixa. Ex.: bordas superiores da imagem */
   overflow: hidden;
+
+  /* Aplicar as animações no cartão de forma mais suave*/
+  transition: filter, transform .6s ease-in-out;
 }
 
 .card img {
@@ -145,6 +148,9 @@ main h1 {
     e object-fit: cover para a imagem se adequar a proporção desejada */
   aspect-ratio: 16/9;
   object-fit: cover;
+
+  /* Retirar o espaço que ficou entre a imagem e o h2 */
+  display: block;
 }
 
 .card-details {
@@ -172,4 +178,55 @@ footer p {
   color: var(--color-base-gray-800);
   font-weight: 600;
   text-align: center;
+}
+
+/* Animações Header e Footer*/
+header {
+  /* -100% no header dará a impressão de que o elemento está vindo de fora da tela, de cima para baixo */
+  --startY: -100%;
+  animation: move 0.2s;
+}
+
+footer {
+  /* 100% no footer dará a impressão de que o elemento está vindo de fora da tela, de baixo para cima */
+  --startY: 100%;
+  animation: move 0.2s;
+}
+
+/* Animação para que o header e o footer apareçam na tela após o carregamento da mesma */
+@keyframes move {
+  from {
+    transform: translateY(var(--startY));
+  }
+}
+
+/* Animações na Galeria */
+.card {
+  /* Foi utilizado uma variável para atribuir o valor de delay da animação.
+    Sendo que a animação começa no primeiro cartão após 0.4segundos e continua sucessivamente até o último cartão com um delay de 0.2segundos de diferença para o cartão anterior.
+    Ou seja, foi aplicado CSS Inline diretamente em cada cartão com o delay desejado (crescente, de 0.2s maior que o cartão anterior) */
+  --delay: 0.4s;
+  animation: appear 0.4s var(--delay) backwards;
+}
+
+/* Na animação o cartão inicia (0%) "invisível" (opacity: 0) e com um tamanho menor (scale 0.7).
+  No meio da animação (50%) o cartão terá um tamanho maior (scale 1.2) que o seu estado final (scale 1),
+  dando a impressão de que o cartão está pulando (para frente) na tela.*/
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Efeito de sombra e aumento do cartão quando passar o mouse em cima*/
+.card:hover {
+  filter: drop-shadow(0 0 5px var(--color-base-gray-500));
+  transform: scale(1.1);
+
+  cursor: pointer;
 }
